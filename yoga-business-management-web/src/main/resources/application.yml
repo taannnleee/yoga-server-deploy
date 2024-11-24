@@ -1,0 +1,51 @@
+# Development properties (also used for docker-compose)
+server:
+  port: ${PORT:8080}
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  application:
+    name: yoga-business-management-web
+  datasource:
+    url: ${DB_URL}?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false
+    username: ${DB_USER:root}
+    password: ${DB_PASS}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.${DIALECT}
+  mail:
+    host: ${SPRING_MAIL_HOST}
+    port: ${SPRING_MAIL_PORT}
+    username: ${SPRING_MAIL_USERNAME}
+    password: ${SPRING_MAIL_PASSWORD}
+    properties:
+      mail.smtp.auth: ${SPRING_MAIL_PROPERTIES_MAIL_SMTP_AUTH}
+      mail.smtp.starttls.enable: ${SPRING_MAIL_PROPERTIES_MAIL_SMTP_STARTTLS_ENABLE}
+openapi:
+  service:
+    api-docs: api-service
+    server: http://localhost:${PORT:8080}
+    title: API Service
+    version: 1.0.0
+
+jwt:
+  expiryTime: ${JWT_EXPIRY_TIME}
+  secretKey: ${JWT_SECRET_KEY}
+  refreshkey: ${JWT_REFRESH_KEY}
+  resetKey: ${JWT_RESET_KEY}
+payment:
+  vnPay:
+    url: ${PAY_URL}
+    tmnCode: ${TMN_CODE}
+    secretKey: ${SECRET_KEY}
+    returnUrl: ${RETURN_URL}
+    version: ${VERSION}
+    command: ${COMMAND}
+    orderType: ${ORDER_TYPE}
+
+frontend:
+  url: ${FRONTEND_URL}
