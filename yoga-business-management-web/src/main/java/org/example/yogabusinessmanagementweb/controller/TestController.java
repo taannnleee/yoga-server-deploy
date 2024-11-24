@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 @FieldDefaults(level = lombok.AccessLevel.PRIVATE, makeFinal = true)
-@RequestMapping("/api/admin/test")
+@RequestMapping("/api/test")
 @Slf4j
 public class TestController {
     @GetMapping()

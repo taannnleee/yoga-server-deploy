@@ -36,8 +36,6 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 @FieldDefaults(level = lombok.AccessLevel.PRIVATE, makeFinal = true)
 @EnableJpaAuditing(auditorAwareRef = "auditorProvider")
 public class AppConfig {
-
-
     UserService userService;
     PreFilter preFilter;
     CustomAccessDeniedHandler accessDeniedHandler;
@@ -60,7 +58,7 @@ public class AppConfig {
       };
     }
 
-    private String[] WHITE_LIST = {"/api/auth/**", "/test", "/api/payment/vn-pay-callback","api/admin/test","/ws/**"};
+    private String[] WHITE_LIST = {"/api/auth/**", "api/test","/api/admin/test", "/api/payment/vn-pay-callback","api/admin/test","/ws/**"};
 
 //    private String[] WHITE_LIST = {"/api/login", "/api/refresh", "/api/logout","/api/register"};
 
@@ -70,7 +68,7 @@ public class AppConfig {
             @Override
             public void addCorsMappings(@NonNull CorsRegistry registry) {
                 registry.addMapping("**")
-                        .allowedOrigins("*")
+                        .allowedOrigins("http://localhost:3000")
                         .allowedMethods("GET", "POST", "PUT", "DELETE") // Allowed HTTP methods
                         .allowedHeaders("*") // Allowed request headers
                         .allowCredentials(false)
