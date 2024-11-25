@@ -75,6 +75,7 @@ public class User extends AbstractEntity<Long>  implements UserDetails, Serializ
         return true;
     }
 
+
     // Phương thức getAuthorities duy nhất
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
