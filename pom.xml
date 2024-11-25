@@ -11,6 +11,7 @@
     <groupId>org.example</groupId>
     <artifactId>yoga-business-management-web</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
     <name>yoga-business-management-web</name>
     <description>yoga-business-management-web</description>
     <properties>
